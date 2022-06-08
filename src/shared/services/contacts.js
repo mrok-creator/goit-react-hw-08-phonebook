@@ -10,8 +10,8 @@ export const getContacts = async token => {
 };
 
 export const addContact = async (token, data) => {
-  const { data } = await instance.post('/contacts', data);
-  return data;
+  const { contact } = await instance.post('/contacts', data);
+  return contact;
 };
 export const removeContact = async (token, id) => {
   const { data } = await instance.delete(`/contacts/${id}`);
