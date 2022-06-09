@@ -1,25 +1,44 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com/users',
+  baseURL: 'https://connections-api.herokuapp.com/',
 });
 
+const addToken = token => {
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const removeToken = () => {
+  instance.defaults.headers.common.Authorization = ``;
+};
+
 export const signup = async data => {
-  const { user } = await instance.post('/signup', data);
-  return user;
+  const { data: result } = await instance.post('/users/signup', data);
+  addToken(result.token);
+  return result;
 };
 
 export const login = async data => {
-  const { user } = await instance.post('/login', data);
-  return user;
+  const { data: result } = await instance.post('/users/login', data);
+  addToken(result.token);
+  return result;
 };
 
-// export const logout = async token => {
-//   const { user } = await instance.post('/logout', token);
-//   return user;
-// };
+export const logout = async () => {
+  const { data } = await instance.post('/users/logout');
+  removeToken();
+  return data;
+};
 
-// export const isCurrent = async token => {
-//   const { user } = await instance.get('/current');
-//   return user;
-// };
+export const isCurrent = async token => {
+  addToken(token);
+  try {
+    const { data } = await instance.get('/users/current');
+    return data;
+  } catch (error) {
+    removeToken();
+    throw error;
+  }
+};
+
+export default instance;

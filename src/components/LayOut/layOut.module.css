@@ -1,14 +1,23 @@
-.nav {
+.box {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  list-style: none;
-
+  justify-content: space-around;
   width: calc(100%-40px);
   height: 80px;
   margin: 0 auto;
   padding: 15px 15px;
   background-color: #003934;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  /* width: calc(100%-40px);
+  height: 80px;
+  margin: 0 auto;
+  padding: 15px 15px;
+  background-color: #003934; */
 }
 
 .item {
@@ -41,4 +50,17 @@
   background-color: #09aa21;
   color: #030382;
   border: 1px solid #030382;
+}
+
+.private {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }

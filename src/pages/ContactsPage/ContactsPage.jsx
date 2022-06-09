@@ -1,5 +1,5 @@
 import Section from 'shared/components/Section';
-import PhoneBook from './PhoneBook';
+import PhoneBook from 'components/PhoneBook';
 
 const ContactsPage = () => {
   return (

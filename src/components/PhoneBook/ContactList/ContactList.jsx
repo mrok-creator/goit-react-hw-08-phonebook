@@ -12,6 +12,7 @@ function ContactList({ contacts, deleteContacts }) {
       deleteContacts={deleteContacts}
     />
   ));
+
   return <ul className={s.contacts}>{elements}</ul>;
 }
 

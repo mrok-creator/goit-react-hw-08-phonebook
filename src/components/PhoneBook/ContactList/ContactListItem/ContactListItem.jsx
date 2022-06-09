@@ -7,7 +7,7 @@ function ContactListItem({ options, deleteContacts }) {
 
   return (
     <li className={s.item}>
-      {name}: {number}
+      {name}:{number}
       <button
         type="button"
         className={s.btn}
